@@ -36,14 +36,32 @@
   <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets" Condition="Exists('$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets')" />
   <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft F#\v4.0\Microsoft.FSharp.Targets" Condition="(!Exists('$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets'))" />
   <ItemGroup>
-    <Compile Include="App.fs" />
     <Resource Include="ApplicationResources.xaml" />
+    <None Include="setup.fsx" />
     <Resource Include="MainWindow.xaml" />
     <None Include="packages.config" />
+    <Compile Include="UnionStructure.fs" />
+    <Compile Include="App.fs" />
+    <None Include="Script1.fsx" />
+    <None Include="app.config" />
+    <Compile Include="tests.fs" />
+    <None Include="__project.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
     <Reference Include="FSharp.Data.TypeProviders, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FSharp.PowerPack, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a19089b1c74d0809">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FSharp.PowerPack.Linq, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a19089b1c74d0809">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FSharp.PowerPack.Metadata, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a19089b1c74d0809">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FSharp.PowerPack.Parallel.Seq, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a19089b1c74d0809">
       <Private>True</Private>
     </Reference>
     <Reference Include="FSharpx.Core">
@@ -71,7 +89,15 @@
     <Reference Include="System.Xml" />
     <Reference Include="UIAutomationProvider" />
     <Reference Include="UIAutomationTypes" />
+    <Reference Include="Unquote">
+      <HintPath>..\..\packages\Unquote.2.2.2\lib\net40\Unquote.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WindowsBase" />
+    <Reference Include="xunit">
+      <HintPath>..\..\packages\xunit.1.9.1\lib\net20\xunit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
 	     Other similar extension points exist, see Microsoft.Common.targets.
