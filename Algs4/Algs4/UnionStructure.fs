@@ -1,19 +1,14 @@
 ﻿namespace Algs4.UnionStructure
 
-
-
-
 type QuickUnion (n:int) = 
    let entries = Array.init n id
    
    member x.IsConnected p q = entries.[p] = entries.[q]
-
    member x.Union (p:int) (q:int) = 
       if max p q > n - 1 then
          failwithf "max capacity reached %A %A" (max p q) n
       else
-         let pcomp = entries.[p]
-         let qcomp = entries.[q]
+         let pcomp, qcomp = entries.[p], entries.[q]
          entries |> Seq.iteri(fun i v -> if v = pcomp then entries.[i] <- qcomp)
    override x.ToString() = 
       entries.ToString()
@@ -43,10 +38,10 @@ type QuickFind (n:int) =
 type WeightedQuickFind (n:int) = 
    let entries = Array.init n id
    let sizes  = Array.create n 0
-   
    let rec root p = 
          if entries.[p] = p then p
          else
+            entries.[p] <- entries.[entries.[p]]
             root entries.[p]
 
    member x.IsConnected p q = root p = root q
@@ -59,7 +54,6 @@ type WeightedQuickFind (n:int) =
          let rootsmallest, rootbiggest = if sizes.[proot] < sizes.[qroot] then proot, qroot else qroot, proot
          entries.[rootsmallest] <- rootbiggest
          sizes.[rootbiggest]    <- sizes.[rootbiggest] + sizes.[rootsmallest]
-
 
    override x.ToString() = 
       entries.ToString()
