@@ -3,7 +3,7 @@
 
 
 
-type Intunion (n:int) = 
+type QuickUnion (n:int) = 
    let entries = Array.init n id
    
    member x.IsConnected p q = entries.[p] = entries.[q]
@@ -20,7 +20,7 @@ type Intunion (n:int) =
 
 
 
-type QuickUnion (n:int) = 
+type QuickFind (n:int) = 
    let entries = Array.init n id
    
    let rec root p = 

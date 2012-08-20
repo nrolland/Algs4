@@ -2,7 +2,7 @@
 open Algs4.UnionStructure
 
 
-let c = Intunion(10)
+let c = QuickUnion(10)
 c.Union 4 3
 c.Union 3 8
 c.Union 6 5 
@@ -24,7 +24,7 @@ c.IsConnected 5 4
 
 
 
-let c2 = QuickUnion(10)
+let c2 = QuickFind(10)
 c2.Union 4 3
 c2.Union 3 8 // 0 1 2 8 35
 c2.Union 6 5 

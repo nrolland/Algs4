@@ -6,8 +6,8 @@ open Algs4.UnionStructure
 
 
 [<Fact>]
-let ``unionfind `` () =
-   let c2 = Intunion(10)
+let ``QuickUnion `` () =
+   let c2 = QuickUnion(10)
    c2.Union 4 3
    c2.Union 3 8 // 0 1 2 8 35
    c2.Union 6 5 
@@ -28,11 +28,9 @@ let ``unionfind `` () =
             c2.IsConnected 5 4 = false @>
 
 
-
-
 [<Fact>]
-let ``Quickfind `` () =
-   let c2 = QuickUnion(10)
+let ``QuickFind `` () =
+   let c2 = QuickFind(10)
    c2.Union 4 3
    c2.Union 3 8 // 0 1 2 8 35
    c2.Union 6 5 
